@@ -14,19 +14,10 @@ const booksshelf = async function () {
                         <h5 class="card-title" id="title">${book.title}</h5>
                         <p class="card-text">${book.price}$</p>
                     </div>
-                    <button type="button" class="btn btn-primary m-3" id="hidden">Skip</button>
+                    <button class="btn btn-primary m-3" onclick="skipContent(event)">Skip</button>
                 </div>
             `;
       });
-      let buttonHidden = document.querySelectorAll("#hidden");
-      const skipContent = () => {
-        let book = document.getElementsByClassName("book");
-        book.style.display = "none";
-      };
-      buttonHidden.forEach((button) => {
-        button.onclick = skipContent;
-      });
-      console.log(buttonHidden);
     } else {
       console.log("Something went wrong");
     }
@@ -34,5 +25,9 @@ const booksshelf = async function () {
     console.log(error);
   }
 };
+
+function skipContent(e) {
+  e.target.parentElement.style.display = "none";
+}
 
 booksshelf();
