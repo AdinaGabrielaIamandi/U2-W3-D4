@@ -8,13 +8,13 @@ const booksshelf = async function () {
       let card = document.getElementById("container-books");
       booksList.forEach((book) => {
         card.innerHTML += `
-                <div class="card col m-2" style="width: 18rem;">
+                <div class="card col m-2 p-0" style="width: 18rem;">
                     <img src="${book.img}" class="card-img-top" alt="${book.title} pic" style="height: 65%">
-                    <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="card-body d-flex flex-column justify-content-around">
                         <h5 class="card-title" id="title">${book.title}</h5>
                         <p class="card-text">${book.price}$</p>
-                        <a href="#" class="btn btn-primary">Skip</a>
                     </div>
+                    <a href="#" class="btn btn-primary" id="hidden">Skip</a>
                 </div>
             `;
       });
@@ -25,5 +25,7 @@ const booksshelf = async function () {
     console.log(error);
   }
 };
+
+let buttonHidden = document.getElementById("hidden");
 
 booksshelf();
